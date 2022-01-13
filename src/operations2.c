@@ -6,7 +6,7 @@
 /*   By: gvarys <gvarys@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/24 17:42:49 by gvarys            #+#    #+#             */
-/*   Updated: 2021/12/29 11:50:23 by gvarys           ###   ########.fr       */
+/*   Updated: 2022/01/10 17:05:47 by gvarys           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,11 @@ void	reverse_rotate_b(t_stack **b, int flag)
 		write(1, "rrb\n", 4);
 }
 
-void	reverse_rotate_all(t_push_swap *p_s)
+void	reverse_rotate_all(t_push_swap *p_s, int flag)
 {
 	reverse_rotate_a(&p_s->a, FALSE);
 	reverse_rotate_b(&p_s->b, FALSE);
-	write(1, "rrr\n", 4);
+	p_s->steps_b--;
+	if (flag == TRUE)
+		write(1, "rrr\n", 4);
 }

@@ -6,31 +6,22 @@
 /*   By: gvarys <gvarys@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 12:37:57 by gvarys            #+#    #+#             */
-/*   Updated: 2021/12/29 11:51:19 by gvarys           ###   ########.fr       */
+/*   Updated: 2022/01/13 12:45:54 by gvarys           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	sorted(t_stack *a)
-{
-	while (a->next)
-	{
-		if (a->content > a->next->content)
-			return (0);
-		a = a->next;
-	}
-	return (1);
-}
-
 static void	sort_option(t_push_swap *p_s)
 {
-	if (sorted(p_s->a))
+	if (sorted(p_s))
 		return ;
 	if (p_s->a_numbers <= 3)
 		mini_sort(p_s);
 	else if (p_s->a_numbers <= 5)
 		medium_sort(p_s);
+	else
+		big_sort(p_s);
 }
 
 static void	push_swap(int argc, char **argv)
@@ -45,7 +36,11 @@ static void	push_swap(int argc, char **argv)
 	{
 		full_stacks(argc, argv, p_s);
 		sort_option(p_s);
+		free_stack(p_s);
+		free(p_s->pre_sorted);
 	}
+	else
+		ft_putstr_fd("Error\n", 1);
 	free(p_s);
 }
 

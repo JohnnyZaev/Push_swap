@@ -6,7 +6,7 @@
 /*   By: gvarys <gvarys@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 14:46:41 by gvarys            #+#    #+#             */
-/*   Updated: 2021/12/29 11:23:26 by gvarys           ###   ########.fr       */
+/*   Updated: 2022/01/10 17:00:44 by gvarys           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,13 @@ void	medium_sort(t_push_swap *p_s)
 	while (p_s->b_numbers != 2)
 	{
 		if (p_s->a->content == p_s->min || p_s->a->content == p_s->max)
-			push_b(p_s);
+			push_b(p_s, TRUE);
 		else
 			rotate_a(&p_s->a, TRUE);
 	}
 	mini_sort(p_s);
-	push_a(p_s);
-	push_a(p_s);
+	push_a(p_s, TRUE);
+	push_a(p_s, TRUE);
 	if (p_s->a->content == p_s->max)
 		rotate_a(&p_s->a, TRUE);
 	else

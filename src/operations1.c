@@ -6,7 +6,7 @@
 /*   By: gvarys <gvarys@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/24 17:05:34 by gvarys            #+#    #+#             */
-/*   Updated: 2021/12/29 11:25:01 by gvarys           ###   ########.fr       */
+/*   Updated: 2022/01/10 17:05:09 by gvarys           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,11 @@ void	rotate_b(t_stack **b, int flag)
 		write(1, "rb\n", 3);
 }
 
-void	rotate_all(t_push_swap *p_s)
+void	rotate_all(t_push_swap *p_s, int flag)
 {
 	rotate_a(&p_s->a, FALSE);
 	rotate_b(&p_s->b, FALSE);
-	write(1, "rr\n", 3);
+	p_s->steps_b--;
+	if (flag == TRUE)
+		write(1, "rr\n", 3);
 }

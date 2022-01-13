@@ -6,7 +6,7 @@
 /*   By: gvarys <gvarys@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/24 16:34:56 by gvarys            #+#    #+#             */
-/*   Updated: 2021/12/29 11:23:54 by gvarys           ###   ########.fr       */
+/*   Updated: 2022/01/13 11:21:57 by gvarys           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,15 @@ void	swap_b(t_stack *b, int flag)
 		write(1, "sb\n", 3);
 }
 
-void	swap_ab(t_push_swap *p_s)
+void	swap_ab(t_push_swap *p_s, int flag)
 {
 	swap_a(p_s->a, FALSE);
 	swap_b(p_s->b, FALSE);
-	write(1, "ss\n", 3);
+	if (flag == TRUE)
+		write(1, "ss\n", 3);
 }
 
-void	push_a(t_push_swap *p_s)
+void	push_a(t_push_swap *p_s, int flag)
 {
 	t_stack	*temp;
 
@@ -57,10 +58,11 @@ void	push_a(t_push_swap *p_s)
 	p_s->a = temp;
 	p_s->a_numbers += 1;
 	p_s->b_numbers -= 1;
-	write(1, "pa\n", 3);
+	if (flag == TRUE)
+		write(1, "pa\n", 3);
 }
 
-void	push_b(t_push_swap *p_s)
+void	push_b(t_push_swap *p_s, int flag)
 {
 	t_stack	*temp;
 
@@ -72,5 +74,6 @@ void	push_b(t_push_swap *p_s)
 	p_s->b = temp;
 	p_s->b_numbers += 1;
 	p_s->a_numbers -= 1;
-	write(1, "pb\n", 3);
+	if (flag == TRUE)
+		write(1, "pb\n", 3);
 }

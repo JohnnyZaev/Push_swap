@@ -6,11 +6,17 @@
 /*   By: gvarys <gvarys@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 18:46:24 by gvarys            #+#    #+#             */
-/*   Updated: 2021/10/15 12:51:44 by gvarys           ###   ########.fr       */
+/*   Updated: 2022/01/13 13:37:49 by gvarys           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static void	print_error(void)
+{
+	ft_putstr_fd("Error\n", 1);
+	exit(1);
+}
 
 int	ft_atoi(const char *str)
 {
@@ -34,9 +40,9 @@ int	ft_atoi(const char *str)
 	{
 		res = (res * 10) + (str[i++] - '0');
 		if ((res * sign) > 2147483647)
-			return (-1);
+			print_error();
 		if ((res * sign) < -2147483648)
-			return (0);
+			print_error();
 	}
 	return (res * sign);
 }

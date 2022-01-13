@@ -6,13 +6,13 @@
 /*   By: gvarys <gvarys@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 16:36:32 by gvarys            #+#    #+#             */
-/*   Updated: 2021/12/29 13:39:47 by gvarys           ###   ########.fr       */
+/*   Updated: 2022/01/13 13:37:22 by gvarys           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	for_d_c(int *check, int len)
+static int	for_d_c(long long int *check, int len)
 {
 	int	i;
 	int	j;
@@ -55,15 +55,15 @@ int	argv_is_valid(int argc, char **argv)
 
 int	duplicate_check(int argc, char **argv)
 {
-	int	*check;
-	int	i;
-	int	len;
+	long long int	*check;
+	int				i;
+	int				len;
 
-	check = malloc(sizeof(int) * --argc);
+	check = malloc(sizeof(long long int) * --argc);
 	if (!check)
 		return (FALSE);
 	i = 0;
-	len = argc - 1;
+	len = argc;
 	while (argc)
 	{
 		check[i] = ft_atoi(argv[argc]);
