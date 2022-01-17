@@ -6,7 +6,7 @@
 /*   By: gvarys <gvarys@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/24 11:56:32 by gvarys            #+#    #+#             */
-/*   Updated: 2021/12/29 11:22:12 by gvarys           ###   ########.fr       */
+/*   Updated: 2022/01/17 10:06:19 by gvarys           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void	start_stack(t_push_swap *p_s)
 	i = 0;
 	a = (t_stack *)malloc(sizeof(t_stack));
 	if (!a)
-		exit(0);
+		exit(1);
 	first_a = a;
 	a->content = p_s->pre_sorted[i];
 	while (++i != p_s->last_index + 1)
@@ -48,7 +48,7 @@ static void	start_stack(t_push_swap *p_s)
 		if (!a->next)
 		{
 			free_stack(p_s);
-			exit (0);
+			exit (1);
 		}
 		a = a->next;
 		a->content = p_s->pre_sorted[i];
@@ -62,7 +62,7 @@ void	full_stacks(int argc, char **argv, t_push_swap *p_s)
 {
 	p_s->pre_sorted = malloc(sizeof(int) * (argc - 1));
 	if (!p_s->pre_sorted)
-		exit(0);
+		exit(1);
 	p_s->last_index = argc - 2;
 	while (--argc)
 	{

@@ -6,7 +6,7 @@
 /*   By: gvarys <gvarys@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 12:37:57 by gvarys            #+#    #+#             */
-/*   Updated: 2022/01/13 12:45:54 by gvarys           ###   ########.fr       */
+/*   Updated: 2022/01/17 10:06:52 by gvarys           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	push_swap(int argc, char **argv)
 
 	p_s = (t_push_swap *)malloc(sizeof(t_push_swap));
 	if (!p_s)
-		exit(0);
+		exit(1);
 	init_push_swap(p_s);
 	if (argv_is_valid(argc, argv) && duplicate_check(argc, argv))
 	{
